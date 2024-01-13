@@ -18,6 +18,7 @@ const pAequorFactory = (num, arrDNA) => {
     specimenNum: num,
     dna: arrDNA.slice(0, 15),
     mutate() {
+      
       const randBase = Math.floor(Math.random() * this.dna.length);
       const currentBase = this.dna[randBase];
 
@@ -29,6 +30,19 @@ const pAequorFactory = (num, arrDNA) => {
       this.dna[randomIndex] = newBase;
 
       return this.dna;
+    },
+    compareDNA(pAeqour) {
+      const otherDNA = pAeqour.dna;
+      let identicalBases = 0;
+
+      for (let i = 0; i < this.dna.length; i++) {
+        if(this.dna[i] === otherDNA[i]) {
+          identicalBases++;
+        }
+      }
+
+      const percentage = (identicalBases / this.dna.length) * 100;
+      console.log(`Specimen #${this.specimenNum} and Specimen #${pAeqour.specimenNum} have ${percentage}% DNA in common.`);
     }
   }
 };
