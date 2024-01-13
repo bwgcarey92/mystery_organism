@@ -57,6 +57,21 @@ const pAequorFactory = (num, arrDNA) => {
   }
 };
 
+const pAeqourInstances = [];
+
+for (let i = 1; i <= 30, i++) {
+  const organism = pAequorFactory(i, mockUpStrand());
+
+  while (!organism.willLikelySurvive()) {
+    organism.mutate();
+  }
+
+  pAeqourInstances.push(organism);
+}
+
+console.log(pAeqourInstances);
+
+
 
 
 
