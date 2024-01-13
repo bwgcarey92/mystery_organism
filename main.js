@@ -16,7 +16,20 @@ const mockUpStrand = () => {
 const pAequorFactory = (num, arrDNA) => {
   return {
     specimenNum: num,
-    dna: arrDNA.slice(0, 15)
+    dna: arrDNA.slice(0, 15),
+    mutate() {
+      const randBase = Math.floor(Math.random() * this.dna.length);
+      const currentBase = this.dna[randBase];
+
+      let newBase = returnRandBase();
+      while (newBase === currentBase) {
+        newBase = returnRandBase();
+      }
+
+      this.dna[randomIndex] = newBase;
+
+      return this.dna;
+    }
   }
 };
 
