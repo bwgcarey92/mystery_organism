@@ -43,6 +43,16 @@ const pAequorFactory = (num, arrDNA) => {
 
       const percentage = (identicalBases / this.dna.length) * 100;
       console.log(`Specimen #${this.specimenNum} and Specimen #${pAeqour.specimenNum} have ${percentage}% DNA in common.`);
+    },
+    willLikelySurvive() {
+      const countCG = this.dna.filter(base => base === 'C' || base === 'G').lenth;
+      const percentageCG = (countCG / this.dna.length) * 100;
+
+      if (percentageCG >= 60) {
+        return true;
+      } else {
+        return false;
+      };
     }
   }
 };
